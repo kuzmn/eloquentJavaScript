@@ -14,5 +14,5 @@ const startEndPoints = [];
 
 roads.forEach(r => startEndPoints.push(r.split("-")));
 
-exports = buildGraph(startEndPoints);
+exports.roadGraph = buildGraph(startEndPoints);
 

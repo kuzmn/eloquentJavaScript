@@ -66,7 +66,7 @@ for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
 dic.print = value => `(()=>{console.log(${value});return ${value};})()`;
 
 function compile(program) {
-  let {expr, rest} = convertExpression(program);
+  let {expr, rest} = convertExpression(program.replace(/\s/g, ""));
   if (rest.length > 0) { 
     throw new SyntaxError("Unexpected text after program");
   }
@@ -82,6 +82,6 @@ function compile(program) {
 }
 
 function run(program) {
-  return compile(program.replace(/\s/g, ""))();
+  return compile(program)();
 }
 
